@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>CLEANhouse — Уборка помещений</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">CLEAN<span>house</span></div>
+<nav class="nav">
+    <a href="#hero">Главная</a>
+    <a href="#calculator">Рассчитать стоимость</a>
+    <a href="services.html">Услуги</a>
+    <a href="#reviews">Отзывы</a>
+</nav>
+<div class="header-icons">
+    <a href="account.html" class="icon">👤</a>
+</div>
+
+</header>
+
+<main>
+    <!--  ГЛАВНЫЙ ЭКРАН -->
+<section id="hero" class="section full-screen hero">
+    <div class="container">
+        <div class="hero-inner">
+            <p class="hero-subtitle">Полная перезагрузка вашего пространства</p>
+            <h1 class="hero-title">
+                Мы используем безопасные средства и современное оборудование,
+                чтобы сделать уборку максимально эффективной
+            </h1>
+            <button class="btn primary">Заказать уборку</button>
+        </div>
+    </div>
+</section>
+
+
+    <!-- О ПРОЕКТЕ -->
+    <section id="about" class="section full-screen about">
+        <div class="container">
+            <h2>CLEANhouse — ваш надёжный помощник в уборке</h2>
+            <p>
+                Мы не просто убираем — мы создаем пространство, в котором хочется жить и работать.
+                Наши специалисты проходят строгий отбор и обучение.
+            </p>
+            <p>
+                Мы используем только безопасные, экологичные средства — без резких запахов и риска для детей и животных.
+                Если результат вам не понравится — бесплатно приедем и всё исправим.
+            </p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <p>Заполните форму или позвоните — мы перезвоним в течение 15 минут и согласуем дату и время.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <p>Специалист приедет вовремя, привезёт с собой все средства и оборудование.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <p>Вы получаете идеально чистое помещение. Если что-то не так — переделаем бесплатно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  ПОНЯТНЫЕ ВЫГОДЫ -->
+    <section id="services" class="section full-screen benefits">
+        <div class="container">
+            <h2>Популярные услуги<div class="hero-inner"></h2>
+
+            <div class="cards-row">
+                <article class="service-card">
+                    <img src="img/chem1.jpg" alt="Химчистка ковров">
+                    <div class="service-card-text">
+                        Химчистка ковров от <strong>1000 ₽</strong>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <img src="img/chem2.jpg" alt="Химчистка мебели">
+                    <div class="service-card-text">
+                        Химчистка мебели от <strong>1500 ₽</strong>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <img src="img/chem3.jpg" alt="Стирка белья">
+                    <div class="service-card-text">
+                        Стирка белья от <strong>400 ₽</strong>
+                    </div>
+                </article>
+            </div>
+
+            <div class="notice">
+                <span class="notice-icon">!</span>
+                <p>Самые выгодные цены в Казани и гарантированное качество уборки!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ПОЧЕМУ ВЫБИРАЮТ НАС -->
+    <section id="reviews" class="section full-screen why-us">
+        <div class="container">
+            <h2>Почему выбирают нас?</h2>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <h3>Наталья Ш.</h3>
+                    <p>Спасибо огромное за уборку — быстро, качественно и недорого.
+                        Квартира как новая, буду обращаться ещё!</p>
+                </div>
+                <div class="review-card">
+                    <h3>Олег В.</h3>
+                    <p>Регулярно пользуемся услугами для офиса. Всегда вовремя,
+                        аккуратно и без лишних вопросов.</p>
+                </div>
+                <div class="review-card">
+                    <h3>Марина Б.</h3>
+                    <p>После ремонта всё было в пыли. Ребята справились за один день,
+                        сами вывезли мусор. Спасибо!</p>
+                </div>
+            </div>
+
+            <div class="why-list">
+                <ul>
+                    <li>Опыт с 2020 года</li>
+                    <li>Обученные специалисты</li>
+                    <li>Гарантия качества</li>
+                    <li>Экологичные средства</li>
+                </ul>
+                <div class="team-image">
+                    <img src="img/team.jpg" alt="Команда CLEANhouse">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. КАЛЬКУЛЯТОР -->
+    <section id="calculator" class="section full-screen calculator">
+        <div class="container">
+            <h2>Рассчитайте стоимость уборки вашего помещения</h2>
+<!-- верстка через css grid -->
+            <div class="calc-layout"> 
+                <form class="calc-form">
+                    <!-- тип уборки -->
+                    <div class="calc-group">
+                        <h3>Выберите тип уборки:</h3>
+                        <div class="pill-row">
+                            <button type="button" class="pill js-type-option active" data-type="regular">
+                                Регулярная
+                            </button>
+                            <button type="button" class="pill js-type-option" data-type="general">
+                                Генеральная
+                            </button>
+                            <button type="button" class="pill js-type-option" data-type="repair">
+                                После ремонта
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- площадь -->
+                    <div class="calc-group">
+                        <h3>Площадь помещения:</h3>
+                        <div class="pill-row">
+                            <button type="button" class="pill js-area-option active" data-area="0-49">0–49 кв</button>
+                            <button type="button" class="pill js-area-option" data-area="50-69">50–69 кв</button>
+                            <button type="button" class="pill js-area-option" data-area="70-100">70–100 кв</button>
+                            <button type="button" class="pill js-area-option" data-area="100-149">100–149 кв</button>
+                            <button type="button" class="pill js-area-option" data-area="150+">150+ кв</button>
+                        </div>
+                    </div>
+
+                    <!-- доп. услуги -->
+                    <div class="calc-group">
+                        <h3>Дополнительные услуги:</h3>
+
+                        <div class="extra-row js-extra-row" data-extra="oven" data-price="500">
+                            <span class="extra-title">Мойка духовки изнутри</span>
+                            <div class="extra-counter">
+                                <button type="button" class="extra-minus">−</button>
+                                <span class="extra-qty">0</span>
+                                <button type="button" class="extra-plus">+</button>
+                            </div>
+                            <span class="extra-price">500 ₽ / шт</span>
+                        </div>
+
+                        <div class="extra-row js-extra-row" data-extra="microwave" data-price="300">
+                            <span class="extra-title">Мойка СВЧ изнутри</span>
+                            <div class="extra-counter">
+                                <button type="button" class="extra-minus">−</button>
+                                <span class="extra-qty">0</span>
+                                <button type="button" class="extra-plus">+</button>
+                            </div>
+                            <span class="extra-price">300 ₽ / шт</span>
+                        </div>
+
+                        <div class="extra-row js-extra-row" data-extra="fridge" data-price="450">
+                            <span class="extra-title">Мойка холодильника изнутри</span>
+                            <div class="extra-counter">
+                                <button type="button" class="extra-minus">−</button>
+                                <span class="extra-qty">0</span>
+                                <button type="button" class="extra-plus">+</button>
+                            </div>
+                            <span class="extra-price">450 ₽ / шт</span>
+                        </div>
+
+                        <div class="extra-row js-extra-row" data-extra="ironing" data-price="400">
+                            <span class="extra-title">Глажка</span>
+                            <div class="extra-counter">
+                                <button type="button" class="extra-minus">−</button>
+                                <span class="extra-qty">0</span>
+                                <button type="button" class="extra-plus">+</button>
+                            </div>
+                            <span class="extra-price">400 ₽ / 30 мин</span>
+                        </div>
+
+                        <div class="extra-row js-extra-row" data-extra="windows" data-price="700">
+                            <span class="extra-title">Мойка окон</span>
+                            <div class="extra-counter">
+                                <button type="button" class="extra-minus">−</button>
+                                <span class="extra-qty">0</span>
+                                <button type="button" class="extra-plus">+</button>
+                            </div>
+                            <span class="extra-price">700 ₽ / шт</span>
+                        </div>
+
+                        <div class="extra-row js-extra-row" data-extra="balcony" data-price="700">
+                            <span class="extra-title">Уборка на балконе</span>
+                            <div class="extra-counter">
+                                <button type="button" class="extra-minus">−</button>
+                                <span class="extra-qty">0</span>
+                                <button type="button" class="extra-plus">+</button>
+                            </div>
+                            <span class="extra-price">700 ₽ / шт</span>
+                        </div>
+                    </div>
+                </form>
+
+                <aside class="calc-result">
+                    <h3>Итог к оплате:</h3>
+                    <div class="calc-price" id="calcTotal">0 ₽</div>
+                    <p class="calc-note">
+                        Расчёт ориентировочный. Точную стоимость уточняйте у менеджера компании.
+                    </p>
+                    <p class="calc-note" id="calcDetails"></p>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. КОНТАКТЫ -->
+    <section id="contacts" class="section full-screen contacts">
+        <div class="container">
+            <h2>Ваши контактные данные</h2>
+
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Имя">
+                    <input type="text" placeholder="Тип помещения">
+                </div>
+                <div class="form-row">
+                    <input type="text" placeholder="Фамилия">
+                    <input type="tel" placeholder="Номер телефона">
+                </div>
+                <div class="form-row center">
+                    <button type="submit" class="btn primary">Заказать уборку</button>
+                </div>
+            </form>
+
+            <div class="contact-extra">
+                <div class="contact-block">
+                    <h3>Связаться с нами:</h3>
+                    <div class="pill-row">
+                        <a href="#" class="pill dark">Чат-поддержка</a>
+                        <a href="tel:+79999999999" class="pill">+7 999 999 99 99</a>
+                    </div>
+                    <div class="social-row">
+                        <a href="#">✈️</a>
+                        <a href="#">VK</a>
+                        <a href="#">🟢</a>
+                    </div>
+                </div>
+
+                <div class="contact-block">
+                    <h3>Оставить отзыв:</h3>
+                    <textarea rows="4" placeholder="Ваш отзыв..."></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <nav class="footer-nav">
+            <a href="#hero">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="#about">О нас</a>
+            <a href="#reviews">Отзывы</a>
+        </nav>
+        <div class="footer-brand">
+            <div class="logo">CLEAN<span>house</span></div>
+            <div class="footer-copy">© Булгакова Дарья 831-74</div>
+        </div>
+    </div>
+</footer>
+
+<!-- КАЛЬКУЛЯТОР -->
+<script>
+    const BASE_PRICES = {
+        regular: {
+            "0-49": 1500,
+            "50-69": 2000,
+            "70-100": 2500,
+            "100-149": 3200,
+            "150+": 4000
+        },
+        general: {
+            "0-49": 2500,
+            "50-69": 3200,
+            "70-100": 3800,
+            "100-149": 4500,
+            "150+": 5500
+        },
+        repair: {
+            "0-49": 3000,
+            "50-69": 3800,
+            "70-100": 4500,
+            "100-149": 5200,
+            "150+": 6500
+        }
+    };
+
+    const state = {
+        type: "regular",
+        area: "0-49",
+        extras: {}
+    };
+
+    const totalEl = document.getElementById("calcTotal");
+    const detailsEl = document.getElementById("calcDetails");
+
+    function recalc() {
+        const base = BASE_PRICES[state.type][state.area] || 0;
+        let extrasTotal = 0;
+
+        document.querySelectorAll(".js-extra-row").forEach(row => {
+            const key = row.dataset.extra;
+            const price = Number(row.dataset.price || 0);
+            const qty = state.extras[key] || 0;
+            extrasTotal += price * qty;
+        });
+
+        const total = base + extrasTotal;
+        totalEl.textContent = total.toLocaleString("ru-RU") + " ₽";
+
+        const typeNames = {
+            regular: "Регулярная уборка",
+            general: "Генеральная уборка",
+            repair: "Уборка после ремонта"
+        };
+
+        detailsEl.textContent =
+            typeNames[state.type] +
+            ", площадь: " + state.area +
+            (extrasTotal > 0 ? ", доп. услуги: " + extrasTotal.toLocaleString("ru-RU") + " ₽" : "");
+    }
+
+    // тип уборки
+    document.querySelectorAll(".js-type-option").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".js-type-option").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            state.type = btn.dataset.type;
+            recalc();
+        });
+    });
+
+    // площадь
+    document.querySelectorAll(".js-area-option").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".js-area-option").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            state.area = btn.dataset.area;
+            recalc();
+        });
+    });
+
+    // доп. услуги
+    document.querySelectorAll(".js-extra-row").forEach(row => {
+        const key = row.dataset.extra;
+        state.extras[key] = 0;
+
+        const qtyEl = row.querySelector(".extra-qty");
+        const minusBtn = row.querySelector(".extra-minus");
+        const plusBtn = row.querySelector(".extra-plus");
+
+        minusBtn.addEventListener("click", () => {
+            state.extras[key] = Math.max(0, (state.extras[key] || 0) - 1);
+            qtyEl.textContent = state.extras[key];
+            recalc();
+        });
+
+        plusBtn.addEventListener("click", () => {
+            state.extras[key] = (state.extras[key] || 0) + 1;
+            qtyEl.textContent = state.extras[key];
+            recalc();
+        });
+    });
+
+    recalc();
+</script>
+</body>
+</html>

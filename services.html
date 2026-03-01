@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Услуги — CLEANhouse</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">CLEAN<span>house</span></div>
+        <nav class="nav">
+            <a href="index.html#hero">Главная</a>
+            <a href="index.html#calculator">Рассчитать стоимость</a>
+            <a href="services.html">Услуги</a>
+            <a href="index.html#reviews">Отзывы</a>
+        </nav>
+        <div class="header-icons">
+            <a href="account.html" class="icon">👤</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Блок 1: список услуг -->
+    <section class="section full-screen services-list">
+        <div class="container">
+            <div class="services-inner">
+                <h1>Наши услуги</h1>
+
+                <div class="cards-row services-cards">
+                    <div class="service-card big">
+                        <h3>Регулярная уборка</h3>
+                        <p>Поддерживающая уборка квартир и офисов: полы, пыль, кухня, санузлы.</p>
+                        <p><strong>от 1500 ₽</strong></p>
+                    </div>
+                    <div class="service-card big">
+                        <h3>Генеральная уборка</h3>
+                        <p>Глубокая уборка всех комнат, труднодоступных мест и техники.</p>
+                        <p><strong>от 3500 ₽</strong></p>
+                    </div>
+                    <div class="service-card big">
+                        <h3>Уборка после ремонта</h3>
+                        <p>Удаление строительной пыли, мытьё окон, чистка мебели и полов.</p>
+                        <p><strong>от 4000 ₽</strong></p>
+                    </div>
+                </div>
+
+                <div class="cards-row services-cards">
+                    <div class="service-card big">
+                        <h3>Химчистка мебели</h3>
+                        <p>Диваны, кресла, стулья, матрасы, ковры и ковролин.</p>
+                        <p><strong>от 1500 ₽</strong></p>
+                    </div>
+                    <div class="service-card big">
+                        <h3>Мытьё окон и балконов</h3>
+                        <p>С внутренней и внешней стороны, в том числе после ремонта.</p>
+                        <p><strong>от 700 ₽ / створка</strong></p>
+                    </div>
+                    <div class="service-card big">
+                        <h3>Дополнительные работы</h3>
+                        <p>Мойка техники, глажка белья, вынос мусора и другие услуги по запросу.</p>
+                        <p><strong>индивидуальный расчёт</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 2: простой калькулятор заявки на услугу -->
+    <section class="section full-screen services-calculator">
+        <div class="container">
+            <div class="services-inner">
+                <h2>Быстрый запрос на расчёт стоимости</h2>
+
+                <div class="calc-layout services-calc-layout">
+                    <form class="calc-form">
+                        <div class="calc-group">
+                            <label for="service-type-select">Тип услуги:</label>
+                    <select id="service-type-select" class="select-pill">
+    <option>Регулярная уборка</option>
+    <option>Генеральная уборка</option>
+    <option>Уборка после ремонта</option>
+    <option>Химчистка мебели</option>
+    <option>Мытьё окон</option>
+    <option>Другая услуга</option>
+</select>
+
+                        </div>
+
+                        <div class="calc-group">
+                            <label for="service-area-input">Площадь / количество:</label>
+                            <input id="service-area-input" type="number" placeholder="Например, 60 (кв.м или шт.)">
+                        </div>
+
+                        <div class="calc-group">
+                            <label for="service-comment">Комментарий:</label>
+                            <textarea id="service-comment" rows="4" placeholder="Опишите объект, удобное время и дополнительные пожелания"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn primary">Отправить запрос</button>
+                    </form>
+
+                    <aside class="calc-result">
+                        <h3>Предварительная стоимость</h3>
+                        <div class="calc-price">Будет рассчитана менеджером</div>
+                        <p class="calc-note">
+                            Оставьте заявку — мы свяжемся с вами, уточним детали и назовём точную цену.
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <nav class="footer-nav">
+            <a href="index.html#hero">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="index.html#reviews">Отзывы</a>
+        </nav>
+        <div class="footer-brand">
+            <div class="logo">CLEAN<span>house</span></div>
+            <div class="footer-copy">© CLEANhouse</div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
