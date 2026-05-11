@@ -1,0 +1,14 @@
+{% for cat in cats %}
+    <li style="margin: 8px 0;">
+        {% if cat.id == cat_selected %}
+            <span style="color: #800040; font-weight: bold;">
+                {{ cat.name }}
+            </span>
+        {% else %}
+            <a href="{{ cat.get_absolute_url }}" style="text-decoration: none; color: inherit;">
+                {{ cat.name }}
+            </a>
+        {% endif %}
+    </li>
+{% endfor %}
+

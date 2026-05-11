@@ -1,0 +1,1201 @@
+/* БАЗА */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #ffe6f5;
+    color: #4b145d;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ХЕДЕР */
+
+.header {
+    padding: 24px 0;  
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #ffffffcc;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #f0c7e9;
+}
+.header nav a {
+    font-size: 20px;
+}
+
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.logo {
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #4b145d;
+}
+
+.logo span {
+    color: #b1007f;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 15px;
+}
+
+.nav a {
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #b1007f;
+    transition: width 0.2s;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* СЕКЦИИ */
+
+.section {
+    padding: 0;
+}
+
+.full-screen {
+    min-height: 100vh;
+    display: flex;
+}
+
+.full-screen > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 90px 20px 70px;
+}
+
+h1,
+.hero-title {
+    font-size: 2.4rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+}
+
+p {
+    font-size: 0.98rem;
+}
+
+/* КНОПКИ */
+
+.btn {
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: #b1007f;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(177, 0, 127, 0.4);
+        margin-top: 20px; 
+}
+
+/* HERO */
+
+/* фон почти как на картинке: слева светлее, справа насыщеннее */
+/* ===== HERO как один большой фон с картинкой ===== */
+
+/* сам блок hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+/* полупрозрачная картинка + розовый градиент поверх неё */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    /* важный момент: путь к картинке из CSS → ../img/hero.jpg */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 230, 245, 0.98) 0%,
+            rgba(255, 230, 245, 0.96) 40%,
+            rgba(255, 230, 245, 0.6) 65%,
+            rgba(255, 230, 245, 0.2) 100%
+        ),
+        url("../img/hero.jpg") right center / cover no-repeat;
+
+    opacity: 1;           /* можно понижать, если нужно бледнее */
+    z-index: 0;
+}
+
+/* чтобы текст был поверх фона */
+.hero > .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* текстовый блок уже не сетка 2х колонки, а просто слева */
+.hero-inner {
+    max-width: 720px;  /* ширина текста, чтобы не расползался */
+}
+
+/* чуть опустим текст не так низко (если нужно) */
+.full-screen.hero > .container {
+    justify-content: center;  /* или flex-start, если должен быть выше */
+}
+
+
+
+/* ABOUT */
+
+.about p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.steps-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.step-card {
+    padding: 40px 45px !important;  /* больше внутренние отступы */
+    min-height: 200px !important;   /* карточки станут выше */
+    font-size: 24px !important;     /* текст внутри крупнее */
+    line-height: 1.45;
+    position: relative;
+    background: #fbd0ee;
+    border-radius: 18px;
+}
+
+.step-card p {
+    font-size: 24px !important;
+}
+.step-number {
+    position: absolute;
+    top: -14px;
+    left: 16px;
+    width: 56px !important;
+    height: 56px !important;
+    font-size: 28px !important;
+    border-radius: 50%;
+    background: #b1007f;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+.about-steps {
+    margin-top: 20px !important;   /* было 50–70px */
+}
+
+
+
+
+/* BENEFITS */
+/* Заголовок "Популярные услуги" */
+.benefits h2 {
+    margin-bottom: 18px;
+}
+
+/* Сетка карточек */
+.cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Карточка услуги */
+.service-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(151, 60, 128, 0.25);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Картинка в карточке */
+.service-card img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
+
+/* Текст под картинкой (название + цена) */
+.service-card-text {
+    padding: 16px 24px;
+    font-size: 24px !important;   /* было 26 → чуть-чуть поменьше */
+    line-height: 1.35;
+}
+
+/* ===== БЕЛАЯ ПЛАШКА "САМЫЕ ВЫГОДНЫЕ ЦЕНЫ..." ===== */
+.notice {
+    margin-top: 26px;
+    background: #ffffff;               /* белая */
+    border-radius: 28px;
+    padding: 22px 32px;                /* больше высота */
+    border: 2px solid #f3a7d4;         /* тонкая розовая обводка */
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 24px;
+    color: #4b145d;
+    box-shadow: 0 8px 24px rgba(177, 0, 127, 0.15);
+}
+
+.notice p {
+    margin: 0;
+}
+
+/* кружок с восклицательным знаком */
+.notice-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ff6b6b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+/* WHY US */
+
+.why-us h2 {
+    margin-bottom: 18px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.review-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-size: 0.96rem;
+}
+
+.review-card h3 {
+    margin-bottom: 8px;
+}
+
+.why-list {
+    display: grid;
+    grid-template-columns: 0.55fr 0.45fr;
+    gap: 24px;
+    align-items: center;
+}
+
+.why-list ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.why-list li {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.why-list li::before {
+    content: "✔";
+    margin-right: 12px;
+    color: #00b46a;
+    font-size: 1.8rem;
+}
+
+.team-image img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 26px;
+}
+
+/* CALCULATOR */
+
+.calculator {
+    background: #ffe4f6;
+}
+
+.calc-layout {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 24px;
+}
+
+.calc-group {
+    margin-bottom: 22px;
+}
+
+.calc-group h3 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+
+.pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pill {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: none;
+    background: #f8c5eb;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pill.dark {
+    background: #8c0064;
+    color: #fff;
+}
+
+.pill.active {
+    background: #b1007f;
+    color: #fff;
+}
+
+.calc-result {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    align-self: flex-start;
+}
+
+.calc-price {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 10px 0 12px;
+}
+
+.calc-note {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+/* ДОП. УСЛУГИ */
+
+.extra-row {
+    background: #fff;
+    border-radius: 20px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.extra-title {
+    flex: 1;
+    font-size: 16px;
+}
+
+.extra-counter {
+    min-width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.extra-minus,
+.extra-plus {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: #f6c2e5;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.extra-minus:hover,
+.extra-plus:hover {
+    background: #b1007f;
+    color: #fff;
+}
+
+.extra-qty {
+    width: 26px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.extra-price {
+    width: 130px;          /* фиксируем ширину колонки цены */
+    text-align: right;     /* выравниваем вправо */
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+/* CONTACTS */
+
+.contact-form {
+    margin-top: 10px;
+}
+
+.form-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.form-row.center {
+    justify-content: center;
+}
+
+input,
+textarea {
+    width: 100%;
+    border-radius: 999px;
+    border: none;
+    padding: 11px 16px;
+    font-size: 14px;
+    background: #ffd4ef;
+    outline: none;
+}
+
+textarea {
+    border-radius: 18px;
+    resize: vertical;
+}
+
+.contact-extra {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 20px;
+}
+
+.contact-block h3 {
+    margin-bottom: 10px;
+}
+
+.social-row {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-row a {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #b1007f;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FOOTER */
+
+.footer {
+    background: #7b0056;
+    color: #fff;
+    padding: 16px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+}
+
+.footer-brand {
+    text-align: right;
+}
+
+.footer-copy {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* АДАПТИВ */
+/* Красивая розовая "таблетка" для select на странице услуг */
+.select-pill {
+    background: #ffd4ef !important;
+    border-radius: 999px;
+    border: 2px solid #f3a7d4;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #4b145d;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+
+    /* убираем системный стиль, насколько позволяет браузер */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* место для стрелочки */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%238c0064' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><polygon points='5,7 15,7 10,13'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 14px;
+}
+
+/* hover / focus эффекты, чтобы жил как кнопка/поле */
+.select-pill:hover {
+    background-color: #fcd0f0 !important;
+}
+
+.select-pill:focus {
+    border-color: #b1007f;
+    box-shadow: 0 0 0 3px rgba(177, 0, 127, 0.2);
+}
+/* Поля в блоке "Оставить отзыв" на странице аккаунта */
+.leave-review form {
+    max-width: 600px;
+}
+
+/* верхнее поле "Ваше имя" */
+.leave-review input {
+    margin-bottom: 12px;          /* расстояние до textarea */
+    border-radius: 999px;         /* плашка-таблетка */
+}
+
+/* большое поле "Текст отзыва" */
+.leave-review textarea {
+    margin-top: 0;                /* на всякий случай */
+    border-radius: 24px;          /* не такая круглая, отдельным блоком */
+}
+/* ===== АККАУНТ: шапка и кнопка редактирования ===== */
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.account-subtitle {
+    margin-top: 6px;
+    font-size: 0.98rem;
+    opacity: 0.8;
+}
+
+/* вторичная кнопка под стиль сайта */
+.btn.secondary {
+    background: #ffe4f6;
+    color: #b1007f;
+    box-shadow: 0 4px 12px rgba(177, 0, 127, 0.25);
+    border-radius: 999px;
+    padding-inline: 22px;
+}
+
+.btn.secondary:hover {
+    background: #f8c5eb;
+}
+
+/* карточка с личными данными */
+
+.account-info-card {
+    background: #ffe2f4;
+    border-radius: 22px;
+    padding: 20px 22px;
+    box-shadow: 0 8px 24px rgba(177, 0, 127, 0.12);
+}
+
+.account-info-card h2 {
+    margin-bottom: 14px;
+}
+
+/* строки с данными */
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 10px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+}
+
+.info-label {
+    font-weight: 600;
+}
+
+.info-value {
+    font-weight: 500;
+}
+
+/* ===== Правим подзаголовок в hero ===== */
+
+.hero-subtitle {
+    font-size: 36px !important;       /* БОЛЬШЕ */
+    font-weight: 500;
+    color: #4b145d;
+    opacity: 0.95;
+
+    margin-bottom: 40px !important;   /* ОТСТУП ВНИЗ */
+    margin-top: -20px !important;     /* ПОДНИМАЕМ ВВЕРХ */
+    line-height: 1.25;
+}
+
+/* ===== Блок "CLEANhouse — ваш помощник" ===== */
+
+.about-section h2,
+.about-section h1 {
+    font-size: 54px !important;       /* Было ~42–48px → сделаем крупнее */
+    margin-bottom: 28px;
+}
+
+.about-section p {
+    font-size: 26px !important;       /* Было ~18–20px */
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+
+
+/* адаптивностm */
+
+@media (max-width: 960px) {
+    .account-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .account-edit-btn {
+        align-self: stretch;
+        text-align: center;
+    }
+}
+
+/* ===== КАРТОЧКИ ЗАКАЗОВ В АККАУНТЕ ===== */
+
+.account-orders {
+    margin-top: 32px;
+}
+
+.account-orders h2 {
+    margin-bottom: 20px;
+}
+
+.order-card {
+    background: #ffe2f4;
+    border-radius: 22px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 24px rgba(177, 0, 127, 0.15);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* небольшой hover-эффект */
+.order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(177, 0, 127, 0.22);
+}
+
+.order-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.35rem;
+    color: #4b145d;
+}
+
+.order-card p {
+    margin-bottom: 6px;
+    font-size: 1.05rem;
+}
+
+.label {
+    font-weight: 600;
+}
+
+/* статусы */
+.status {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.status.done {
+    background: #dbffe6;
+    color: #1a7f3c;
+}
+
+.status.planned {
+    background: #fff3d4;
+    color: #a96800;
+}
+
+
+@media (max-width: 960px) {
+    .hero-inner,
+    .steps-grid,
+    .cards-row,
+    .reviews-grid,
+    .why-list,
+    .calc-layout,
+    .contact-extra,
+    .account-layout,
+    .services-calc-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .full-screen > .container {
+        padding-top: 100px;
+        padding-bottom: 50px;
+        justify-content: flex-start;
+    }
+
+    .calc-result {
+        margin-top: 10px;
+    }
+}
+/* ===== СТРАНИЦА УСЛУГ — КРУПНЫЕ КАРТОЧКИ ===== */
+
+/* на services.html делаем по одной широкой карточке в строку */
+/* расстояние между верхним и нижним рядами карточек на странице услуг */
+/* расстояние между верхним и нижним рядами карточек на странице услуг */
+.services-list .cards-row + .cards-row {
+    margin-top: 26px;
+}
+
+
+.services-cards .service-card.big {
+    min-height: 0;
+    padding: 24px 28px;
+    border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(177, 0, 127, 0.18);
+    /* margin-bottom можно удалить или поставить маленький, типа 8px */
+}
+
+
+/* крупный заголовок услуги */
+.services-cards .service-card.big h3 {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+/* текст услуги — чёткий, с нормальным интервалом */
+.services-cards .service-card.big p {
+    font-size: 1.05rem;
+    line-height: 1.45;
+}
+
+
+@media (max-width: 640px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav {
+        justify-content: flex-start;
+    }
+
+    h1,
+.hero-title {
+    margin-bottom: 40px;    /* было меньше, добавим воздуха */
+}
+
+
+    .hero-subtitle {
+    font-size: 32px;           /* было ~20px, теперь крупнее */
+    font-weight: 500;
+    margin-bottom: 34px;       /* большой отступ вниз */
+    color: #4b145d;
+    opacity: 0.9;
+}
+
+
+    .why-list li {
+        font-size: 1.3rem;
+    }
+
+    .extra-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+.extra-counter {
+    min-width: 140px;   /* чтобы кнопки везде стояли ровно */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ===== СТРАНИЦА АККАУНТА ===== */
+
+.account-inner h1 {
+    margin-bottom: 20px;
+}
+
+.account-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 24px;
+}
+
+.account-info,
+.account-orders {
+    background: #ffe2f4;
+    border-radius: 20px;
+    padding: 20px 18px;
+}
+
+.account-info p {
+    margin-bottom: 6px;
+}
+
+.order-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 14px 15px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.order-card h3 {
+    margin-bottom: 6px;
+}
+
+.account-reviews .reviews-grid {
+    margin-top: 14px;
+}
+
+.leave-review {
+    margin-top: 26px;
+}
+
+.leave-review form {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;   /* тоже создаёт отступ между полями */
+}
+
+
+/* ===== СТРАНИЦА УСЛУГ ===== */
+
+.services-inner h1 {
+    margin-bottom: 22px;
+}
+
+/* Увеличенные, «воздушные» карточки услуг */
+.services-cards .service-card.big {
+    min-height: 0;
+    padding: 24px 28px;
+    border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(177, 0, 127, 0.18);
+    margin-bottom: 20px;       /* 🔥 расстояние между карточками */
+}
+
+
+
+.services-cards .service-card.big h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;   /* крупный заголовок как в фигме */
+    line-height: 1.3;
+}
+
+.services-cards .service-card.big p {
+    font-size: 1.05rem;
+    line-height: 1.45;   /* читаемость лучше */
+}
+
+
+.services-calc-layout {
+    margin-top: 22px;
+}
+
+/* Стилизация SELECT под стиль сайта */
+.services-calculator select,
+.services-calculator input,
+.services-calculator textarea {
+    background: #ffd4ef;
+    border-radius: 999px;
+    border: 2px solid #f3a7d4;
+    padding: 12px 18px;
+    font-size: 16px;
+    color: #4b145d;
+    width: 100%;
+    outline: none;
+    appearance: none;             /* убираем стандартную стрелочку */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+}
+
+/* Добавляем кастомную стрелочку справа */
+.services-calculator select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%238c0064' height='20' width='20' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 20,0 10,12'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover эффект */
+.services-calculator select:hover {
+    background-color: #fcd0f0;
+}
+
+/* Фокус эффект */
+.services-calculator select:focus {
+    border-color: #b1007f;
+    box-shadow: 0 0 0 3px rgba(177,0,127,0.2);
+}
+
+
+.services-calculator textarea {
+    border-radius: 18px;
+    resize: vertical;
+}
+
+@media (max-width: 640px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav {
+        justify-content: flex-start;
+    }
+
+    h1,
+    .hero-title {
+        margin-bottom: 40px;    
+    }
+
+    .hero-subtitle {
+        font-size: 32px;
+        font-weight: 500;
+        margin-bottom: 34px;
+        color: #4b145d;
+        opacity: 0.9;
+    }
+
+    .why-list li {
+        font-size: 1.3rem;
+    }
+
+    .extra-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .extra-counter {
+        min-width: 140px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* ===== СТРАНИЦА АККАУНТА ===== */
+
+    .account-inner h1 {
+        margin-bottom: 20px;
+    }
+
+    .account-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        gap: 24px;
+    }
+
+    .account-info,
+    .account-orders {
+        background: #ffe2f4;
+        border-radius: 20px;
+        padding: 20px 18px;
+    }
+
+    .account-info p {
+        margin-bottom: 6px;
+    }
+
+    .order-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 14px 15px;
+        margin-top: 10px;
+        font-size: 0.95rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .order-card h3 {
+        margin-bottom: 6px;
+    }
+
+    .account-reviews .reviews-grid {
+        margin-top: 14px;
+    }
+
+    .leave-review {
+        margin-top: 26px;
+    }
+
+    .leave-review form {
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* ===== СТРАНИЦА УСЛУГ ===== */
+
+    .services-inner h1 {
+        margin-bottom: 22px;
+    }
+
+    .services-cards .service-card.big {
+        min-height: 0;
+        padding: 24px 28px;
+        border-radius: 26px;
+        box-shadow: 0 10px 30px rgba(177, 0, 127, 0.18);
+        margin-bottom: 20px;
+    }
+
+    .services-cards .service-card.big h3 {
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+        line-height: 1.3;
+    }
+
+    .services-cards .service-card.big p {
+        font-size: 1.05rem;
+        line-height: 1.45;
+    }
+
+    .services-calc-layout {
+        margin-top: 22px;
+    }
+
+    .services-calculator select,
+    .services-calculator input,
+    .services-calculator textarea {
+        background: #ffd4ef;
+        border-radius: 999px;
+        border: 2px solid #f3a7d4;
+        padding: 12px 18px;
+        font-size: 16px;
+        color: #4b145d;
+        width: 100%;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        position: relative;
+    }
+
+    .services-calculator select {
+        background-image: url("data:image/svg+xml;utf8,<svg fill='%238c0064' height='20' width='20' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 20,0 10,12'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        background-size: 16px;
+        cursor: pointer;
+    }
+
+    .services-calculator select:hover {
+        background-color: #fcd0f0;
+    }
+
+    .services-calculator select:focus {
+        border-color: #b1007f;
+        box-shadow: 0 0 0 3px rgba(177,0,127,0.2);
+    }
+
+    .services-calculator textarea {
+        border-radius: 18px;
+        resize: vertical;
+    }
+}
+
+}

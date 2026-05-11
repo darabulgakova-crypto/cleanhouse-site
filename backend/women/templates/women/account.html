@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <!-- Блок 1. данные + заказы -->
+    <section class="section full-screen account">
+        <div class="container">
+            <div class="account-inner">
+
+                <div class="account-header">
+                    <div>
+                        <h1>Мой аккаунт</h1>
+                        <p class="account-subtitle">Личные данные и история заказов</p>
+                    </div>
+                    <button type="button" class="btn secondary account-edit-btn">
+                        Редактировать профиль
+                    </button>
+                </div>
+
+                <div class="account-layout">
+                    <div class="account-info-card">
+                        <h2>Личные данные</h2>
+
+                        <div class="info-row">
+                            <span class="info-label">Имя</span>
+                            <span class="info-value">Иван</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Фамилия</span>
+                            <span class="info-value">Иванов</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Телефон</span>
+                            <span class="info-value">+7 999 999 99 99</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Город</span>
+                            <span class="info-value">Казань</span>
+                        </div>
+                    </div>
+
+                    <div class="account-orders">
+                        <h2>Мои заказы</h2>
+
+                        <div class="order-card">
+                            <h3>Генеральная уборка квартиры</h3>
+                            <p><span class="label">Дата:</span> 15.03.2025</p>
+                            <p><span class="label">Адрес:</span> ул. Примерная, д. 10</p>
+                            <p><span class="label">Статус:</span>
+                                <span class="status done">выполнен</span>
+                            </p>
+                        </div>
+
+                        <div class="order-card">
+                            <h3>Химчистка дивана</h3>
+                            <p><span class="label">Дата:</span> 05.04.2025</p>
+                            <p><span class="label">Адрес:</span> ул. Цветочная, д. 5</p>
+                            <p><span class="label">Статус:</span>
+                                <span class="status done">выполнен</span>
+                            </p>
+                        </div>
+
+                        <div class="order-card">
+                            <h3>Регулярная уборка офиса</h3>
+                            <p><span class="label">Дата:</span> 20.04.2025</p>
+                            <p><span class="label">Адрес:</span> Бизнес-центр «Сити»</p>
+                            <p><span class="label">Статус:</span>
+                                <span class="status planned">запланирован</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 2: отзывы + форма оставить отзыв -->
+    <section class="section full-screen account-reviews">
+        <div class="container">
+            <div class="account-inner">
+                <h2>Отзывы клиентов</h2>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <h3>Ваш отзыв</h3>
+                        <p>После публикации здесь будет отображаться ваш последний отзыв о нашей уборке.</p>
+                    </div>
+                    <div class="review-card">
+                        <h3>Анна П.</h3>
+                        <p>Заказывала уборку после ремонта — всё идеально, даже окна до блеска. Спасибо!</p>
+                    </div>
+                    <div class="review-card">
+                        <h3>Дмитрий К.</h3>
+                        <p>Убирали офис вечером, чтобы не мешать работе. Офис утром был как новый.</p>
+                    </div>
+                </div>
+
+                <div class="leave-review">
+                    <h3>Оставить отзыв</h3>
+                    <form>
+                        <input type="text" placeholder="Ваше имя">
+                        <textarea rows="4" placeholder="Текст отзыва..."></textarea>
+                        <button type="submit" class="btn primary">Отправить отзыв</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% with post.tags.all as tags %}
+{% if tags %}
+<ul class="tags-list">
+    <li>Теги:</li>
+    {% for t in tags %}
+        <li><a href="{{ t.get_absolute_url }}">{{ t.tag }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<section class="section full-screen">
+    <div class="container">
+
+        <h1>{{ post.title }}</h1>
+
+        {% if post.photo %}
+    <p><img class="img-article-left" src="{{ post.photo.url }}"></p>
+        {% endif %}
+
+        <p style="margin-top: 20px;">
+            {{ post.content|default:"Описание услуги" }}
+        </p>
+
+        <a href="{% url 'home' %}" style="display:block; margin-top:30px;">
+            ← Назад
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

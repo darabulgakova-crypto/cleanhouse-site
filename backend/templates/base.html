@@ -1,0 +1,183 @@
+{% load women_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'women/css/style.css' %}">
+</head>
+<body>
+
+    
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">CLEAN<span>house</span></div>
+
+        <nav class="nav">
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="/women/#calculator">Рассчитать стоимость</a>
+            <a href="{% url 'services' %}">Услуги</a>
+            <a href="{% url 'home' %}#reviews">Отзывы</a>
+            <a href="{% url 'addpage' %}">Добавить статью</a>
+            <a href="{% url 'contacts' %}">Контакты</a>
+        </nav>
+
+        <div class="header-icons">
+            <a href="{% url 'account' %}" class="icon">👤</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<div style="padding: 30px;">
+    <h3>Категории</h3>
+
+    <ul style="list-style: none; padding: 0;">
+
+        {% if cat_selected == 0 or cat_selected is None %}
+            <li><strong>Все категории</strong></li>
+        {% else %}
+            <li><a href="{% url 'home' %}#calculator">Все категории</a></li>
+        {% endif %}
+<ul id="leftchapters">
+
+    {% show_categories cat_selected %}
+
+    <li>
+        {% show_all_tags %}
+    </li>
+
+</ul>
+
+    </ul>
+</div>
+
+
+
+{% block mainmenu %}
+<div class="header">
+    <ul id="mainmenu" class="mainmenu">
+
+        <li class="logo">
+            <a href="{% url 'home' %}">
+                <div class="logo"></div>
+            </a>
+        </li>
+
+
+
+        {% if user.is_authenticated %}
+    <li class="last">
+        <a href="{% url 'users:profile' %}">
+    {{ user.username }}
+</a>
+        <a href="{% url 'users:logout' %}">Выйти</a>
+    </li>
+{% else %}
+    <li class="last">
+        <a href="{% url 'users:login' %}">Войти</a> |
+        <a href="{% url 'users:register' %}">Регистрация</a>
+    </li>
+{% endif %}
+
+    </ul>
+    <div class="clear"></div>
+</div>
+{% endblock %}
+
+
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <nav class="footer-nav">
+            <a href="#hero">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="#about">О нас</a>
+            <a href="#reviews">Отзывы</a>
+        </nav>
+        <div class="footer-brand">
+            <div class="logo">CLEAN<span>house</span></div>
+            <div class="footer-copy">© Булгакова Дарья 831-74</div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- JS КАЛЬКУЛЯТОРА -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const BASE_PRICES = {
+        regular: {"0-49": 1500, "50-69": 2000, "70-100": 2500, "100-149": 3200, "150+": 4000},
+        general: {"0-49": 2500, "50-69": 3200, "70-100": 3800, "100-149": 4500, "150+": 5500},
+        repair: {"0-49": 3000, "50-69": 3800, "70-100": 4500, "100-149": 5200, "150+": 6500}
+    };
+
+    const state = { type: "regular", area: "0-49", extras: {} };
+
+    const totalEl = document.getElementById("calcTotal");
+
+    function recalc() {
+        const base = BASE_PRICES[state.type][state.area] || 0;
+        let extrasTotal = 0;
+
+        document.querySelectorAll(".js-extra-row").forEach(row => {
+            const key = row.dataset.extra;
+            const price = Number(row.dataset.price || 0);
+            const qty = state.extras[key] || 0;
+            extrasTotal += price * qty;
+        });
+
+        const total = base + extrasTotal;
+        if (totalEl) totalEl.textContent = total + " ₽";
+    }
+
+    document.querySelectorAll(".js-type-option").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".js-type-option").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            state.type = btn.dataset.type;
+            recalc();
+        });
+    });
+
+    document.querySelectorAll(".js-area-option").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".js-area-option").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            state.area = btn.dataset.area;
+            recalc();
+        });
+    });
+
+    document.querySelectorAll(".js-extra-row").forEach(row => {
+        const key = row.dataset.extra;
+        state.extras[key] = 0;
+
+        const qtyEl = row.querySelector(".extra-qty");
+
+        row.querySelector(".extra-minus").addEventListener("click", () => {
+            state.extras[key] = Math.max(0, state.extras[key] - 1);
+            qtyEl.textContent = state.extras[key];
+            recalc();
+        });
+
+        row.querySelector(".extra-plus").addEventListener("click", () => {
+            state.extras[key]++;
+            qtyEl.textContent = state.extras[key];
+            recalc();
+        });
+    });
+
+    recalc();
+});
+</script>
+
+
+</body>
+</html>

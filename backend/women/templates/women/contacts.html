@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Контакты CLEANhouse</h1>
+
+<p>Наш адрес: Казань, ул. Баумана, 10</p>
+
+<div id="map" style="width: 100%; height: 500px;"></div>
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=a43bfeb0-1566-4706-8d82-6a83dcbd9046&lang=ru_RU"
+type="text/javascript">
+</script>
+
+<script type="text/javascript">
+
+ymaps.ready(init);
+
+function init() {
+
+    let myMap = new ymaps.Map("map", {
+        center: [55.796127, 49.106414],
+        zoom: 15
+    });
+
+    let myPlacemark = new ymaps.Placemark(
+        [55.796127, 49.106414],
+        {
+            balloonContent: 'CLEANhouse',
+            hintContent: 'Клининговая компания'
+        }
+    );
+
+    myMap.geoObjects.add(myPlacemark);
+}
+
+</script>
+
+{% endblock %}

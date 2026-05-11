@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+
+<p>{{ description }}</p>
+
+<ul>
+    {% for m in menu %}
+        <li>{{ m }}</li>
+    {% endfor %}
+</ul>
+
+
+<form action="" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Отправить</button>
+
+</form>
+
+
+{% endblock %}

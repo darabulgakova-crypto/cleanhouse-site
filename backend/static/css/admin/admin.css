@@ -1,0 +1,15 @@
+#header {
+    background: #6b2d84;
+}
+
+.module h2, .module caption {
+    background: #8d44ad;
+}
+
+div.breadcrumbs {
+    background: #b57edc;
+}
+
+#site-name a {
+    color: white;
+}
